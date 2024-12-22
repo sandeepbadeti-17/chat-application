@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A project with separate backend and frontend",
   "scripts": {
-    "start": "node server/server.js",  
-    "server": "nodemon server/server.js",  
+    "start": "node server/app.js",  
+    "server": "nodemon server/app.js",  
     "build": "npm install && npm install --prefix client && npm run build --prefix client",  
     "install-client": "npm install --prefix client",  
     "install-server": "npm install --prefix server"  
