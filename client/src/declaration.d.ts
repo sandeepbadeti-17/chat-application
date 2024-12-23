@@ -3,3 +3,5 @@ declare module '*.css' {
     export default content;
   }
 declare module 'react-dom/client';
+declare module 'vite';
+declare module '@vitejs/plugin-react';
