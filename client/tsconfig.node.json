@@ -20,8 +20,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    /* Include Node.js and Vite-specific types */
+    /* Vite-specific types */
     "types": ["vite/client", "node"]
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "node_modules/vite/client.d.ts"]
 }
