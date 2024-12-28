@@ -28,5 +28,5 @@
     // ]
     
   },
-  "include": ["vite.config.ts", "src/declarations.d.ts","vite-env.d.ts"]
+  "include": ["vite.config.js", "src/declarations.d.ts","vite-env.d.ts"]
 }
