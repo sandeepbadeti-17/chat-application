@@ -6,3 +6,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react({ include: /\.(js|jsx|ts|tsx)$/ })],
 })
+
+declare module 'vite';
+declare module '@vitejs/plugin-react';
