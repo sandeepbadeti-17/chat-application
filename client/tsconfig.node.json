@@ -21,11 +21,12 @@
     "noUncheckedSideEffectImports": true,
 
     /* Vite-specific types */
-    "types": ["vite/client", "node"],
+    // "types": ["vite/client", "node"],
     // "typeRoots": [
-    //   "./node_modules/@types",       // Default type definitions
-    //   "./node_modules/vite/types"    // Add Vite types explicitly
+    //   "./node_modules/vite",    // Add Vite types explicitly
+    //   "./node_modules/node"    // Add Vite types explicitly
     // ]
+    
   },
   "include": ["vite.config.ts", "src/declarations.d.ts","vite-env.d.ts"]
 }
