@@ -7,7 +7,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
@@ -18,16 +18,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-
-    /* Vite-specific types */
-    // "types": ["vite/client", "node"],
-    // "typeRoots": [
-    //   "./node_modules/vite",    // Add Vite types explicitly
-    //   "./node_modules/node"    // Add Vite types explicitly
-    // ]
-    
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "vite.config.ts"],
-  "exclude": ["node_modules"]
+  "include": ["vite.config.ts"]
 }
