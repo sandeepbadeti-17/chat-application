@@ -48,7 +48,8 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT;
 // const PORT = 5000;
-const CLIENT = process.env.CLIENT || "http://localhost:5173";
+const CLIENT = process.env.CLIENT;
+// const CLIENT = process.env.CLIENT || "http://localhost:5173";
 const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

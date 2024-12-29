@@ -34,6 +34,7 @@ function Login() {
           "Content-type" : "application/json",
         }
       }
+      console.log(PORT,'port is here the request is going to')
       const { data } = await axios.post(`${PORT}/api/user/login`, {email, password}, config)
       localStorage.setItem("userInfo", JSON.stringify(data))
       setLoading(false)
