@@ -5,7 +5,7 @@ import { getSender } from "../config/ChatsLogics";
 import { io, Socket } from "socket.io-client";
 
 // const ENDPOINT = "http://localhost:5000";
-const PORT = import.meta.env.BASE_URL || "http://localhost:5000";
+const PORT = import.meta.env.VITE_BASE_URL || "http://localhost:5000";
 let socket: Socket;
 let selectedChatCompare: Chat | null;
 
