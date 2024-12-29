@@ -35,7 +35,7 @@ const SideDrawer: React.FC<SideDrawerProps> = ({ isOpen, onClose, user }) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const { setSelectedChat, setChats, chats } = ChatState();
-
+  const PORT = import.meta.env.BASE_URL || "http://localhost:5000";
   const searchHandler = async () => {
     if (!search.trim()) {
       setSnackbarOpen(true);
@@ -59,7 +59,7 @@ const SideDrawer: React.FC<SideDrawerProps> = ({ isOpen, onClose, user }) => {
       };
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${search}`,
+        `${PORT}/api/user?search=${search}`,
         config
       );
       setLoading(false);
@@ -87,7 +87,7 @@ const SideDrawer: React.FC<SideDrawerProps> = ({ isOpen, onClose, user }) => {
       };
 
       const { data } = await axios.post(
-        `http://localhost:5000/api/chat`,
+        `${PORT}/api/chat`,
         { userId },
         config
       );

@@ -13,7 +13,7 @@ function SignUp() {
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
-
+  const PORT = import.meta.env.BASE_URL || "http://localhost:5000";
   const navigate = useNavigate();
 
   const handlePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,7 +90,7 @@ function SignUp() {
         pic: uploadImage.secure_url, // Use uploaded image URL
       };
 
-      const userResponse = await fetch("http://localhost:5000/api/user", {
+      const userResponse = await fetch(`${PORT}/api/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

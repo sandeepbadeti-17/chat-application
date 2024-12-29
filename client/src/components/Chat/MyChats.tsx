@@ -31,7 +31,7 @@ function MyChats({ fetchAgain, user }: MyChatsProps) {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [loggedUser, setLoggedUser] = useState<User | undefined>();
-
+  const PORT = process.env.BASE_URL || "http://localhost:5000";
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   // const navigate = useNavigate();
   const openDrawer = () => {
@@ -57,7 +57,7 @@ function MyChats({ fetchAgain, user }: MyChatsProps) {
       };
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/chat",
+        `${PORT}/api/chat`,
         config
       );
       console.log("Fetched Chats:", data);

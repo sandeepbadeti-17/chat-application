@@ -4,7 +4,8 @@ import { ChatState } from "../../context/ChatProvider";
 import { getSender } from "../config/ChatsLogics";
 import { io, Socket } from "socket.io-client";
 
-const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "http://localhost:5000";
+const PORT = import.meta.env.BASE_URL || "http://localhost:5000";
 let socket: Socket;
 let selectedChatCompare: Chat | null;
 
@@ -59,7 +60,7 @@ function SingleChat({ fetchAgain, setFetchAgain }: ChatBoxProps) {
         headers: { Authorization: `Bearer ${user.token}` },
       };
       const { data } = await axios.get(
-        `http://localhost:5000/api/message/${selectedChat._id}`,
+        `${PORT}/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -84,7 +85,7 @@ function SingleChat({ fetchAgain, setFetchAgain }: ChatBoxProps) {
       };
       setNewMessage("");
       const { data } = await axios.post(
-        "http://localhost:5000/api/message",
+        `${PORT}/api/message`,
         {
           content: newMessage,
           chatId: selectedChat,
@@ -101,7 +102,7 @@ function SingleChat({ fetchAgain, setFetchAgain }: ChatBoxProps) {
   };
 
   useEffect(() => {
-    socket = io(ENDPOINT);
+    socket = io(PORT);
     socket.emit("setup", user);
     socket.on("connection", () => {
       console.log("Connected to socket.io");
