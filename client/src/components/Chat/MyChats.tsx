@@ -31,7 +31,8 @@ function MyChats({ fetchAgain, user }: MyChatsProps) {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [loggedUser, setLoggedUser] = useState<User | undefined>();
-  const PORT = import.meta.env.VITE_BASE_URL || "http://localhost:5000";
+  const PORT = import.meta.env.VITE_BASE_URL 
+  // const PORT =  "http://localhost:5000"
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   // const navigate = useNavigate();
   const openDrawer = () => {

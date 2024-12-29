@@ -35,7 +35,8 @@ const SideDrawer: React.FC<SideDrawerProps> = ({ isOpen, onClose, user }) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const { setSelectedChat, setChats, chats } = ChatState();
-  const PORT = import.meta.env.VITE_BASE_URL || "http://localhost:5000";
+  const PORT = import.meta.env.VITE_BASE_URL 
+  // const PORT =  "http://localhost:5000"
   const searchHandler = async () => {
     if (!search.trim()) {
       setSnackbarOpen(true);

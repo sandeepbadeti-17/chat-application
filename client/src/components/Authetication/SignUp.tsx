@@ -13,7 +13,8 @@ function SignUp() {
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
-  const PORT = import.meta.env.VITE_BASE_URL || "http://localhost:5000";
+  const PORT = import.meta.env.VITE_BASE_URL 
+  // const PORT =  "http://localhost:5000"
   const navigate = useNavigate();
 
   const handlePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
