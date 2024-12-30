@@ -21,20 +21,21 @@ interface UserType {
   pic?: string;
   token?: string;
 }
+
 interface MyChatsProps {
   fetchAgain: boolean;
   user: UserType;
+  onSelectChat: () => void; // Add the onSelectChat prop
 }
 
-function MyChats({ fetchAgain, user }: MyChatsProps) {
+function MyChats({ fetchAgain, user, onSelectChat }: MyChatsProps) {
   const { selectedChat, setSelectedChat, setChats, chats } = ChatState();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [loggedUser, setLoggedUser] = useState<User | undefined>();
-  const PORT = import.meta.env.VITE_BASE_URL 
-  // const PORT =  "http://localhost:5000"
+  const PORT = import.meta.env.VITE_BASE_URL;
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  // const navigate = useNavigate();
+
   const openDrawer = () => {
     setDrawerOpen(true);
   };
@@ -42,6 +43,7 @@ function MyChats({ fetchAgain, user }: MyChatsProps) {
   const closeDrawer = () => {
     setDrawerOpen(false);
   };
+
   // Fetch chats from the API
   const fetchChats = async () => {
     try {
@@ -57,10 +59,7 @@ function MyChats({ fetchAgain, user }: MyChatsProps) {
         },
       };
 
-      const { data } = await axios.get(
-        `${PORT}/api/chat`,
-        config
-      );
+      const { data } = await axios.get(`${PORT}/api/chat`, config);
       console.log("Fetched Chats:", data);
       setChats(data);
     } catch (error) {
@@ -78,11 +77,11 @@ function MyChats({ fetchAgain, user }: MyChatsProps) {
   }, [fetchAgain]);
 
   return (
-    <div className="flex flex-col bg-black h-[calc(100vh-4rem)] overflow-y-scroll scrollbar-hide p-4">
+    <div className="flex flex-col bg-black h-screen overflow-y-scroll scrollbar-hide p-4">
       {/* Header Section */}
-      <div className="flex items-center justify-start mb-4 w-full ">
+      <div className="flex items-center justify-start mb-4 w-full">
         <div className="text-2xl font-bold mx-2">O-O</div>
-       <div className="" onClick={openDrawer}>
+        <div className="" onClick={openDrawer}>
           <input
             type="text"
             placeholder="Search Users"
@@ -96,12 +95,15 @@ function MyChats({ fetchAgain, user }: MyChatsProps) {
         <div
           key={chat._id}
           className={`p-3 mb-2 rounded shadow-sm transition duration-200 cursor-pointer 
-      ${
-        selectedChat?._id === chat._id
-          ? "bg-gray-700 text-white"
-          : "bg-gray-800 hover:bg-gray-700 text-gray-300"
-      }`}
-          onClick={() => setSelectedChat(chat)}
+            ${
+              selectedChat?._id === chat._id
+                ? "bg-gray-700 text-white"
+                : "bg-gray-800 hover:bg-gray-700 text-gray-300"
+            }`}
+          onClick={() => {
+            setSelectedChat(chat); // Set the selected chat
+            onSelectChat(); // Notify parent component
+          }}
         >
           <p className="text-md font-semibold">
             {!chat?.isGroupChat
@@ -125,4 +127,3 @@ function MyChats({ fetchAgain, user }: MyChatsProps) {
 }
 
 export default MyChats;
-

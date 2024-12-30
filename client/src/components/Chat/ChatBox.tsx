@@ -9,7 +9,7 @@ const ChatBox= ({fetchAgain, setFetchAgain} : ChatBoxProps) => {
 
 
   return (
-    <div className="flex flex-col bg-black h-[calc(100vh-4rem)] p-4">
+    <div className="flex flex-col bg-black h-screen p-4">
       {/* Chat Header */}
       <SingleChat fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>
     </div>
